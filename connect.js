@@ -1,9 +1,11 @@
 const mongoose=require("mongoose");
-mongoose.connect("mongodb://localhost:27017")
+const env=require("dotenv");
+env.config({path:".env"})
+mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
     console.log("connection successfully");
 }).catch((err)=>{
-    console.log('No connection ${err}');
+    console.log(err);
 })
 
 const signupsch=new mongoose.Schema({

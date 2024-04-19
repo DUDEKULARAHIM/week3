@@ -3,7 +3,11 @@ require("./connect")
 const app=express();
 const body1=require('body-parser');
 const student1=require("./connect");
+const env=require("dotenv")
 const encoded=body1.urlencoded({extended:false})
+env.config({
+    path:"/.env"
+})
 app.get("/",(req,res)=>{
     res.sendFile(__dirname+'/signup.html');
 })
