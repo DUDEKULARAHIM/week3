@@ -44,6 +44,7 @@ app.post('/loggedin',encoded,async(req,res)=>{
 app.get('/dashboard',(req,res)=>{
     res.send("welcome user");
 })
-app.listen(8080,()=>{
-    console.log("server is running on port 8080")
+console.log(process.env.PORT || 8080);
+app.listen(process.env.PORT,()=>{
+    console.log(`server is running on port ${process.env.PORT}`);
 })
